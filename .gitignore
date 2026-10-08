@@ -1,0 +1,80 @@
+# Operating systems
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editors and IDEs
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.code-workspace
+
+# Temporary and backup files
+*~
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# C/C++ build products
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dll
+*.exe
+*.out
+*.elf
+*.axf
+*.map
+*.hex
+*.bin
+*.lst
+*.d
+*.dep
+build/
+Build/
+Debug/
+Release/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+compile_commands.json
+
+# Keil MDK generated files (keep project files such as .uvprojx)
+*.uvguix
+*.uvguix.*
+*.crf
+*.lnp
+*.iex
+*.tra
+*.fed
+*.htm
+*.html
+*.sct.bak
+Listings/
+Objects/
+RTE/_Debug*/
+
+# STM32CubeIDE generated state
+.metadata/
+
+# Logs and traces
+*.log
+*.trace
+
+# Python helpers
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local environment files
+.env
+.env.*
+!.env.example
