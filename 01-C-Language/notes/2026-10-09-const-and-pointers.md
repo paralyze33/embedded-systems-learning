@@ -76,3 +76,106 @@ void printArray(const int a[], int length)
 - `int * const p`：`p` 不能改，`*p` 可以改。
 - `const int * const p`：`p` 和 `*p` 都不能改。
 
+## 今日练习代码
+
+### 练习一：统计数字 `0`～`9` 的出现次数
+
+程序不断读取整数，输入 `-1` 时结束；只有 `0`～`9` 范围内的数字会被统计。
+
+编译与运行：
+
+```powershell
+gcc -std=c99 -Wall -Wextra main.c -o main.exe
+.\main.exe
+```
+
+源码：
+
+```c
+#include <stdio.h>
+
+int main(void) {
+    const int number = 10;
+    int x;
+    int count[number];
+    int i;
+
+    for (i = 0; i < number; i++) {
+        count[i] = 0;
+    }
+
+    scanf("%d", &x);
+    while (x != -1) {
+        if (x >= 0 && x <= 9) {
+            count[x]++;
+        }
+        scanf("%d", &x);
+    }
+
+    for (i = 0; i < number; i++) {
+        printf("%d:%d\n", i, count[i]);
+    }
+
+    return 0;
+}
+```
+
+### 练习二：输出前 100 个素数
+
+程序用已经找到的素数判断候选整数是否为素数，并将结果按每行 5 个输出。
+
+编译与运行：
+
+```powershell
+gcc -std=c99 -Wall -Wextra prime100.c -o prime100.exe
+.\prime100.exe
+```
+
+源码：
+
+```c
+#include <stdio.h>
+
+int isPrime(int x, int knownPrimes[], int numberOfKnownPrimes);
+
+int main(void)
+{
+    enum { number = 100 };
+    int prime[number] = {2};
+    int count = 1;
+    int i = 3;
+
+    while (count < number) {
+        if (isPrime(i, prime, count)) {
+            prime[count++] = i;
+        }
+        i++;
+    }
+
+    for (i = 0; i < number; i++) {
+        printf("%d", prime[i]);
+        if ((i + 1) % 5) {
+            printf("\t");
+        } else {
+            printf("\n");
+        }
+    }
+
+    return 0;
+}
+
+int isPrime(int x, int knownPrimes[], int numberOfKnownPrimes)
+{
+    int ret = 1;
+    int i;
+
+    for (i = 0; i < numberOfKnownPrimes; i++) {
+        if (x % knownPrimes[i] == 0) {
+            ret = 0;
+            break;
+        }
+    }
+
+    return ret;
+}
+```
